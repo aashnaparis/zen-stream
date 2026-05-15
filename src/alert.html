@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+    <link rel="stylesheet" href="src/alert.css" />
+    <script src="src/alert.js" ></script>
+</head>
+
+<body>
+    <header id="top-panel">
+        <div class="box-piece">
+            <h1>Alerts</h1>
+        </div>
+
+        <!-- prolly a logo and ... -->
+
+        <div class="press-piece">
+            <ul>
+                <li>
+                    <a href="src/index.html">Home</a>
+                </li>
+                <li>
+                    <a href="src/settings.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-con">
+        <div class="filter" id="filter">
+            <div class="node-filter">
+                <div class="node-filter">
+                    <label for="node-filter">Select a node: </label>
+                    <select id="node-filter">
+                        <option value="Zen01">Node?</option>
+                        <option value="24">Zen01 (Router)</option>
+                        <option value="33">Zenx01 (End Node)</option>
+                    </select>
+                </div>
+
+                <div class="node-filter">
+                    <label for="status">Status: </label>
+                    <select id="status">
+                        <option value="">Status?</option>
+                        <option value="4">Fault</option>
+                        <option value="3">Critical</option>
+                        <option value="1">Major</option>
+                        <option value="2">Warning</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-concept">
+            <div id="alert">
+                <h3>Alert Table</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Node ID</th>
+                            <th>Battery(mV)</th>
+                            <th>Severity</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alert"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Streams</title>
+    <link rel="stylesheet" href="src/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="src/index.js" defer></script>
+</head>
+
+<body>
+    <header id="top-panel">
+        <div class="boxPiece">
+            <h1>Live Zen</h1>
+        </div>
+
+        <!-- prolly a logo and ... -->
+
+        <div class="press-piece">
+            <ul>
+                <li>
+                    <a href="src/alert.html">Alerts</a>
+                </li>
+                <li>
+                    <a href="src/settings.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-body">
+        <h3>Welcome to the <i>Zen Network</i>!
+            <span> Home of Emergency Solution on UWI Mona Campus</span>
+        </h3>
+        <hr>
+
+        <div class="small-talk">
+            <p class="small-blurb">
+                The wireless mesh network design demonstrates a resilient, low-power communication system tailored for
+                campus wide emergencies. By integrating solar powered nodes with centralized supervision and secure data
+                visualization, the system ensure 24/7 operational availability and rapid emergency response.
+            </p>
+        </div>
+
+        <div class="node-desc">
+            <div id="nodeDesc" class="item">
+                <h4>Nodes Online: </h4>
+                <span id="online"> </span>
+            </div>
+
+            <div id="presentAlrt" class="item">
+                <h4>Active Alert: </h4>
+                <span id="alert"> </span>
+            </div>
+
+            <div id="lastUpdate" class="item">
+                <h4>Last Updated: </h4>
+                <span id="updated"> </span>
+            </div>
+        </div>
+
+        <h3>Node Map</h3>
+        <div id="map"></div>
+        <div class="button-wrap">
+            <button onclick="resetMap()">Reset Map</button>
+        </div>
+
+        <div class="node-concept">
+            <div id="nodeOne" class="item press" onclick="showMod('0x18')">
+                <h3>Zen01</h3>
+                <h3><i>Router Node</i></h3>
+                <span id="one"> </span>
+            </div>
+
+            <div id="nodeTwo" class="item press" onclick="showMod('0x21')">
+                <h3>Zenx01</h3>
+                <h3><i>Alarm Node</i></h3>
+                <!-- put a image here -->
+                <span id="two"> </span> 
+            </div>
+        </div>
+
+        <div id="modeal" class="modeal">
+            <div class="contente">
+                <span class="close">&times;</span>
+                <div id="bodee">
+                    <h2 class="logform">Battery Status</h2>
+                    <span>
+                        <h3>Zen01</h3>
+                    </span>
+
+                    <div class="table-concept">
+                        <div id="batterySection">
+                            <h3 id="modalNodeID"></h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Battery(mV)</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="battery"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="table-concept">
+            <div>
+                <h3>Heart Beat Table</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Node ID</th>
+                            <th>Battery(mV)</th>
+                            <th>Status</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="heartbeat"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="footer">
+        <p><i>2026 Zen Mesh Net. All Rights Reserved</i>.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zen Login</title>
+    <link rel="stylesheet" href="src/login.css" />
+    <script src="src/login.js"></script>
+</head>
+
+<body>
+    <!-- Basically want a pic naturay background with login button-->
+    <!-- Css awaits -->
+    <div class="container">
+        <img id="buddha" alt="" src="" />
+        <div class="item">
+            <h2 class="header">Zen Net Login</h2>
+            <button id="loginBtn" onclick="showMod()">Login</button>
+        </div>
+        <span id="error"></span>
+    </div>
+
+    <div id="login" class="modal">
+        <div class="content">
+            <span class="close">&times;</span>
+            <div id="loginform">
+                <h2 class="logform">Login</h2>
+                <form id="loginForm">
+                    <label for="login-username">Username</label>
+                    <br>
+                    <br>
+                    <input type="text" id="login-username" name="username" placeholder="Enter Username" required />
+                    <br>
+                    <br>
+                    <label for="login-email">Email</label>
+                    <br>
+                    <br>
+                    <input type="email" name="login-email" id="login-email" placeholder="Enter Email Address" required />
+                    <br>
+                    <br>
+                    <label for="login-password">Password</label>
+                    <br>
+                    <br>
+                    <input type="password" name="login-password" id="login-password" placeholder="Enter Your Password" required />
+                    <br>
+                    <br>
+                    <button type="submit" onclick="verifyLogin()">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="src/settings.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="src/settings.js" defer></script>
+</head>
+
+<body>
+    <header id="top-panel">
+        <div class="boxPiece">
+            <h1>Settings</h1>
+        </div>
+
+        <!-- prolly a logo and ... -->
+
+        <div class="press-piece">
+            <ul>
+                <li>
+                    <a href="src/index.html">Home</a>
+                </li>
+                <li>
+                    <a href="src/alert.html">Alert</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-con">
+
+        <h2>Node Map</h2>
+        <div id="map"></div>
+        <div class="button-wrap">
+            <button onclick="resetMap()">Reset Map</button>
+        </div>
+
+        <div id="locationSel">
+            <form id="location">
+                <div class="node-select">
+                    <label for="nodes">Select a node: </label>
+                    <select name="nodes" id="nodes">
+                        <option value="">Node?</option>
+                        <option value="24">Zen01 (Router)</option>
+                        <option value="33">Zenx01 (End Node)</option>
+                    </select>
+                </div>
+                <div class="coord">
+                    <label for="lat">Lat: </label>
+                    <input type="number" name="lat" id="lat" />
+                    <br>
+                    <label for="long">Long: </label>
+                    <input type="number" name="long" id="long" />
+                </div>
+
+                <div class="button-wrap">
+                    <button id="save" type="submit" onclick="assignDot()">Save Location</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
