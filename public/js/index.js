@@ -2,7 +2,7 @@ async function whologged() {
     const token = localStorage.getItem("token");
 
     if(!token){
-        window.location.href = "src/login.html";
+        window.location.href = "public/login.html";
     }
     // null
 

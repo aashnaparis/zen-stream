@@ -109,7 +109,7 @@ async function loginUser() {
       alert(`Welcome, ${responseBody.username}! You're logged in`);
       localStorage.setItem("token", responseBody.token);
 
-      window.location.href = "src/index.html"
+      window.location.href = "public/index.html"
     }
   } catch (err) {
     console.error("Error logging in, err");
