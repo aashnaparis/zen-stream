@@ -99,7 +99,7 @@ async function loadHeart() {
             const info = await response.json();
             console.log(info);
             if (info.length > 0) {
-                const latest = info[0].timestamp;
+                const latest = info[info.length -1];
                 document.getElementById('updated').textContent = latest;
             }
             updateHeartbeat(info);
