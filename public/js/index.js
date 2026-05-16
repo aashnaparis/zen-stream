@@ -217,10 +217,14 @@ async function nodeMarker() {
             info.forEach(node => {
                 if (node.lat && node.long) {
                     L.marker([node.lat, node.long])
+                        .bindTooltip(`Node ${node.node_id}`, {
+                            permanent: true,
+                            direction: 'top'
+                        })
                         .bindPopup(`
-                        <b>${node.node_id}</b><br>
-                        Battery: ${node.battery_lvl} mV<br>
-                        Status: ${node.status}
+                            <b>${node.node_id}</b><br>
+                            Battery: ${node.battery_lvl} mV<br>
+                            Status: ${node.status}
                     `)
                         .addTo(map);
                 }
