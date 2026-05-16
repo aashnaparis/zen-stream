@@ -49,7 +49,7 @@ async function assignDot() {
     try {
         const response = await fetch(`/api/node/${node}/location`, settings)
        
-        if (response.status != 201) {
+        if (!response.ok) {
             alert("Failed GET Request");
 
         }

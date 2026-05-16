@@ -10,7 +10,7 @@ async function showAlerts(){
             }
         });
 
-        if (response.status != 201) {
+        if (!response.ok) {
             alert("Failed GET Request");
 
         }

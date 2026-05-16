@@ -42,7 +42,7 @@ async function loadNodes() {
                 "Content-Type": "application/json"
             }
         });
-        if (response.status != 201) {
+        if (!response.ok) {
             alert("Failed GET Request");
 
         }
@@ -66,7 +66,7 @@ async function loadAlerts() {
                 "Content-Type": "application/json"
             }
         });
-        if (response.status != 201) {
+        if (!response.ok) {
             alert("Failed GET Request");
 
         }
@@ -91,7 +91,7 @@ async function loadHeart() {
                 "Content-Type": "application/json"
             }
         });
-        if (response.status != 201) {
+        if (!response.ok) {
             alert("Failed GET Request");
 
         }

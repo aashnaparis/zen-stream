@@ -100,7 +100,7 @@ async function loginUser() {
   try {
     var response = await fetch("/api/login", settings)
 
-    if (response.status != 201) {
+    if (!response.ok) {
       document.getElementById("error").innerHTML=("Login failed, check you email/username/password");
     }
     else {
