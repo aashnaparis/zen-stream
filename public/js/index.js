@@ -1,7 +1,9 @@
+let heartbeats = [];
+
 async function whologged() {
     const token = localStorage.getItem("token");
 
-    if(!token){
+    if (!token) {
         window.location.href = "/login.html";
     }
     // null
@@ -14,6 +16,8 @@ function showMod(value) {
 
     modeal.style.display = 'flex';
     eyedee.textContent = `NodeID ${value}`;
+    updateBatt(heartbeats, value)
+    
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -103,7 +107,7 @@ async function loadHeart() {
                 document.getElementById('updated').textContent = latest.timestamp;
             }
             updateHeartbeat(info);
-            updateBatt(info);
+            heartbeats = info;
         }
     } catch (error) {
         console.log('Error:', error);
@@ -153,7 +157,7 @@ function updateHeartbeat(data) {
 
 }
 
-function updateBatt(data) {
+function updateBatt(data, nodeID) {
     const batt = document.getElementById("battery");
 
     batt.innerHTML = "";
@@ -169,14 +173,24 @@ function updateBatt(data) {
         return;
     }
 
-    data.forEach(element => {
+    const short = data.filter(element => element.node_id == nodeID);
+
+
+    short.forEach(element => {
         const row = document.createElement("tr");
 
         const batData = document.createElement("td");
         const timeData = document.createElement("td");
 
-        batData.textContent = element.battery_lvl;
-        timeData.textContent = element.timestamp;
+        if (element.node_id === '25') {
+            batData.textContent = element.battery_lvl;
+            timeData.textContent = element.timestamp;
+        }else if(element.node_id === '24') {
+            batData.textContent = element.battery_lvl;
+            timeData.textContent = element.timestamp;
+        }else{
+            pass
+        }
 
         row.append(batData, timeData);
         batt.appendChild(row);
