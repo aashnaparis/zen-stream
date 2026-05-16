@@ -100,7 +100,8 @@ async function loadHeart() {
             console.log(info);
             if (info.length > 0) {
                 const latest = info[info.length -1];
-                document.getElementById('updated').textContent = latest;
+                const row = latest[4];
+                document.getElementById('updated').textContent = row;
             }
             updateHeartbeat(info);
             updateBatt(info);
