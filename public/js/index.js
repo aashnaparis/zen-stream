@@ -97,6 +97,7 @@ async function loadHeart() {
         }
         else {
             const info = await response.json();
+            console.log(info);
             if (info.length > 0) {
                 const latest = info[0].timestamp;
                 document.getElementById('updated').textContent = latest;
