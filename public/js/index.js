@@ -52,7 +52,7 @@ async function loadNodes() {
             document.getElementById('online').textContent = nodeCount;
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 
 
@@ -76,7 +76,7 @@ async function loadAlerts() {
             document.getElementById('alert').textContent = alertCount;
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 
 
@@ -106,7 +106,7 @@ async function loadHeart() {
             updateBatt(info);
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 
 
