@@ -99,9 +99,8 @@ async function loadHeart() {
             const info = await response.json();
             console.log(info);
             if (info.length > 0) {
-                const latest = info[info.length -1];
-                const row = latest[4];
-                document.getElementById('updated').textContent = row;
+                const latest = info[0];
+                document.getElementById('updated').textContent = latest.timestamp;
             }
             updateHeartbeat(info);
             updateBatt(info);
@@ -143,12 +142,12 @@ function updateHeartbeat(data) {
         timeData.textContent = element.timestamp;
 
         if (element.status === "ONLINE") {
-            statusData.style.color = "red";
-        } else {
             statusData.style.color = "green";
+        } else {
+            statusData.style.color = "red";
         }
 
-        row.appendChild(nodeData, batData, timeData, statusData);
+        row.append(nodeData, batData, timeData, statusData);
         beat.appendChild(row);
     });
 
@@ -179,7 +178,7 @@ function updateBatt(data) {
         batData.textContent = element.battery_lvl;
         timeData.textContent = element.timestamp;
 
-        row.appendChild(batData, timeData);
+        row.append(batData, timeData);
         batt.appendChild(row);
     });
 
