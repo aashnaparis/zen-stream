@@ -17,7 +17,7 @@ function showMod(value) {
     modeal.style.display = 'flex';
     eyedee.textContent = `NodeID ${value}`;
     updateBatt(heartbeats, value)
-    
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -185,16 +185,50 @@ function updateBatt(data, nodeID) {
         if (element.node_id === '25') {
             batData.textContent = element.battery_lvl;
             timeData.textContent = element.timestamp;
-        }else if(element.node_id === '24') {
+        } else if (element.node_id === '24') {
             batData.textContent = element.battery_lvl;
             timeData.textContent = element.timestamp;
-        }else{
+        } else {
             pass
         }
 
         row.append(batData, timeData);
         batt.appendChild(row);
     });
+
+}
+
+async function nodeMarker() {
+    try {
+        const response = await fetch("/api/node", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (!response.ok) {
+            alert("Failed GET Request");
+
+        }
+        else {
+            const info = await response.json();
+            console.log(info);
+
+            info.forEach(node => {
+                if (node.lat && node.long) {
+                    L.marker([node.lat, node.long])
+                        .bindPopup(`
+                        <b>${node.node_id}</b><br>
+                        Battery: ${node.battery_lvl} mV<br>
+                        Status: ${node.status}
+                    `)
+                        .addTo(map);
+                }
+            });
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
 
 }
 
@@ -228,5 +262,6 @@ window.addEventListener("load", function () {
     loadHeart();
     loadAlerts();
     loadNodes();
+    nodeMarker();
 })
 

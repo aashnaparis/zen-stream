@@ -50,7 +50,7 @@ async function assignDot() {
         const response = await fetch(`/api/node/${node}/location`, settings)
        
         if (!response.ok) {
-            alert("Failed GET Request");
+            alert("Failed PUT Request");
 
         }
         else {
@@ -60,12 +60,10 @@ async function assignDot() {
             
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 
 }
-
-
 
 
 const map = L.map('map', {
