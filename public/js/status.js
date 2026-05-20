@@ -22,7 +22,7 @@ async function showStats(){
 
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 
 }
@@ -83,7 +83,7 @@ async function showTraps(){
             updateTraps(info);
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 
 }
