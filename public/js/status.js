@@ -1,5 +1,5 @@
 const rssi_stat = document.getElementById("rssi");
-const lqi_stat = document.getElementById("lqi");
+const lqi_stat = document.getElementById("link");
 
 async function showStats(){
      try {
