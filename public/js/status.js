@@ -1,4 +1,4 @@
-const rssi_stat = document.getElementById("rssi");
+// const rssi_stat = document.getElementById("rssi");
 const lqi_stat = document.getElementById("link");
 
 async function showStats(){
@@ -17,20 +17,25 @@ async function showStats(){
         else {
             const info = await response.json();
             console.log(info);
-            rssiChart.data.labels.push(info.timestamp);
-            rssiChart.data.datasets[0].data.push(info.rssi);
-
-            lqiChart.data.labels.push(info.timestamp);
-            lqiChart.data.datasets[0].data.push(info.linkquality);
-
-            rssiChart.update();
-            lqiChart.update();
+            createDataPoint(lqiChart, info.timestamp, data.linkquality);
             
 
         }
     } catch (error) {
         console.error('Error:', error);
     }
+
+}
+
+function createDataPoint(chart, label, value, maxPoints = 30){
+    chart.data.labels.push(label);
+    chart.data.datasets[0].data.push(value);
+    if(chart.data.labels.length > maxPoints){
+        chart.data.labels.shift();
+        chart.data.datasets[0].data.shift();
+    }
+
+    chart.update();
 
 }
 
@@ -47,18 +52,18 @@ const lqiChart = new Chart(lqi_stat, {
     }
 });
 
-const rssiChart = new Chart(rssi_stat, {
+// const rssiChart = new Chart(rssi_stat, {
 
-    type: 'line',
+//     type: 'line',
 
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'RSSI',
-            data: []
-        }]
-    }
-});
+//     data: {
+//         labels: [],
+//         datasets: [{
+//             label: 'RSSI',
+//             data: []
+//         }]
+//     }
+// });
 
 async function showTraps(){
      try {
@@ -102,6 +107,7 @@ function updateTraps(data) {
     data.forEach(element => {
         const row = document.createElement("tr");
 
+        const typeData = document.createElement("td");
         const nodeData = document.createElement("td");
         const batData = document.createElement("td");
         const severity = document.createElement("td");
@@ -113,7 +119,7 @@ function updateTraps(data) {
         severity.textContent = element.severity;
         timeData.textContent = element.timestamp;
 
-        row.append(type, nodeData, batData, severity, timeData);
+        row.append(typeData, nodeData, batData, severity, timeData);
         snmp.appendChild(row);
     });
 
@@ -124,5 +130,5 @@ window.addEventListener("load", function () {
     showTraps();
 })
 
-setInterval(showStats(), 2000);
-setInterval(showTraps(), 2000);
+setInterval(showStats, 2000);
+setInterval(showTraps, 2000);
