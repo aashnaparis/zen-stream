@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistic</title>
+     <link rel="stylesheet" href="css/status.css" />
+    <script src="js/status.js" ></script>
+</head>
+
+<body>
+    <header id="top-panel">
+        <div class="box-piece">
+            <h1>Statistic</h1>
+        </div>
+
+        <!-- prolly a logo and ... -->
+
+        <div class="press-piece">
+            <ul>
+                <li>
+                    <a href="/index.html">Home</a>
+                </li>
+                <li>
+                    <a href="/alert.html">Alert</a>
+                </li>
+                <li>
+                    <a href="/settings.html">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-con">
+
+        <canvas id="link"></canvas>
+
+        <canvas id="rssi"></canvas>
+
+
+        <div class="table-concept">
+            <div>
+                <h2>SNMP Traps</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Node ID</th>
+                            <th>Severity</th>
+                            <th>Battery(mV)</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="snmp"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

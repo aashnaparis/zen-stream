@@ -1,0 +1,128 @@
+const rssi_stat = document.getElementById("rssi");
+const lqi_stat = document.getElementById("lqi");
+
+async function showStats(){
+     try {
+        const response = await fetch("/api/stats", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            alert("Failed GET Request");
+
+        }
+        else {
+            const info = await response.json();
+            console.log(info);
+            rssiChart.data.labels.push(info.timestamp);
+            rssiChart.data.datasets[0].data.push(info.rssi);
+
+            lqiChart.data.labels.push(info.timestamp);
+            lqiChart.data.datasets[0].data.push(info.linkquality);
+
+            rssiChart.update();
+            lqiChart.update();
+            
+
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+}
+
+const lqiChart = new Chart(lqi_stat, {
+
+    type: 'line',
+
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Link Quality',
+            data: []
+        }]
+    }
+});
+
+const rssiChart = new Chart(rssi_stat, {
+
+    type: 'line',
+
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'RSSI',
+            data: []
+        }]
+    }
+});
+
+async function showTraps(){
+     try {
+        const response = await fetch("/api/traps", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            alert("Failed GET Request");
+
+        }
+        else {
+            const info = await response.json();
+            updateTraps(info);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+}
+
+function updateTraps(data) {
+    const snmp = document.getElementById("snmp");
+
+    snmp.innerHTML = "";
+
+    if (data.length === 0) {
+        const row = document.createElement("tr");
+        const rowData = document.createElement("td");
+        rowData.colSpan = 4;
+        rowData.style.textAlign = "center";
+        rowData.style.padding = "16px";
+        row.appendChild(rowData);
+        snmp.appendChild(row);
+        return;
+    }
+
+    data.forEach(element => {
+        const row = document.createElement("tr");
+
+        const nodeData = document.createElement("td");
+        const batData = document.createElement("td");
+        const severity = document.createElement("td");
+        const timeData = document.createElement("td");
+
+        typeData.textContent = element.type;
+        nodeData.textContent = element.node_id;
+        batData.textContent = element.battery_lvl;
+        severity.textContent = element.severity;
+        timeData.textContent = element.timestamp;
+
+        row.append(type, nodeData, batData, severity, timeData);
+        snmp.appendChild(row);
+    });
+
+}
+
+window.addEventListener("load", function () {
+    showStats();
+    showTraps();
+})
+
+setInterval(showStats(), 2000);
+setInterval(showTraps(), 2000);

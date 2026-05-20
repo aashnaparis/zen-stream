@@ -76,8 +76,8 @@ function updateAlert(data) {
         severity.textContent = element.severity;
         timeData.textContent = element.timestamp;
 
-        row.appendChild(nodeData, batData, severity, timeData);
-        batt.appendChild(row);
+        row.append(nodeData, batData, severity, timeData);
+        alert.appendChild(row);
     });
 
 }
