@@ -83,3 +83,8 @@ td{
     padding: 12px;
     font-size: 14px;
 }
+
+canvas {
+    width: 90px;
+    height: 200px;
+}
