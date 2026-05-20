@@ -44,9 +44,9 @@ const lqiChart = new Chart(lqi_stat, {
     type: 'line',
 
     data: {
-        labels: [],
+        labels: ["LQI over time"],
         datasets: [{
-            label: 'Link Quality',
+            label: ["Link Quality"],
             data: []
         }]
     }
