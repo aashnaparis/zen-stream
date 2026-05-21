@@ -17,9 +17,8 @@ async function showStats(){
         else {
             const info = await response.json();
             console.log(info);
-            createDataPoint(lqiChart, info.timestamp, data.linkquality);
-            
-
+            createDataPoint(lqiChart, info.timestamp, info.linkquality);
+    
         }
     } catch (error) {
         console.log('Error:', error);
