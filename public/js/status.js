@@ -1,8 +1,8 @@
 // const rssi_stat = document.getElementById("rssi");
 const lqi_stat = document.getElementById("link");
 
-async function showStats(){
-     try {
+async function showStats() {
+    try {
         const response = await fetch("/api/stats", {
             method: "GET",
             headers: {
@@ -17,8 +17,33 @@ async function showStats(){
         else {
             const info = await response.json();
             console.log(info);
-            createDataPoint(lqiChart, info.timestamp, info.linkquality);
-    
+
+            
+            const temp = [...info].reverse();
+
+           
+            lqiChart.data.labels = [];
+            lqiChart.data.datasets[0].data = [];
+            lqiChart.data.datasets[1].data = [];
+
+           
+            temp.forEach(d => {
+                lqiChart.data.labels.push(d.timestamp);
+            });
+
+            
+            temp.forEach((d, i) => {
+                if (d.node_id == '24' || d.node_id == 24) {
+                    lqiChart.data.datasets[0].data[i] = d.linkquality;
+                } else if (d.node_id == '25' || d.node_id == 25) {
+                    lqiChart.data.datasets[1].data[i] = d.linkquality;
+                }
+            });
+
+            lqiChart.update();
+
+
+
         }
     } catch (error) {
         console.log('Error:', error);
@@ -26,17 +51,17 @@ async function showStats(){
 
 }
 
-function createDataPoint(chart, label, value, maxPoints = 30){
-    chart.data.labels.push(label);
-    chart.data.datasets[0].data.push(value);
-    if(chart.data.labels.length > maxPoints){
-        chart.data.labels.shift();
-        chart.data.datasets[0].data.shift();
-    }
+// function createDataPoint(chart, label, value, maxPoints = 30){
+//     chart.data.labels.push(label);
+//     chart.data.datasets[0].data.push(value);
+//     if(chart.data.labels.length > maxPoints){
+//         chart.data.labels.shift();
+//         chart.data.datasets[0].data.shift();
+//     }
 
-    chart.update();
+//     chart.update();
 
-}
+// }
 
 const lqiChart = new Chart(lqi_stat, {
 
@@ -45,9 +70,47 @@ const lqiChart = new Chart(lqi_stat, {
     data: {
         labels: ["LQI over time"],
         datasets: [{
-            label: ["Link Quality"],
-            data: []
+            label: ["Zenx01"],
+            data: [],
+            borderColor: '#00ff88',
+            backgroundColor: 'rgba(0, 255, 136, 0.15)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 4
+        },
+        {
+            label: ["Zen01"],
+            data: [],
+            borderColor: '#829f1a',
+            backgroundColor: 'rgba(206, 97, 23, 0.15)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 4
         }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: { color: '#ffffff' }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#cccccc' },
+                grid: { color: 'rgba(255,255,255,0.1)' }
+            },
+            y: {
+                ticks: { color: '#cccccc' },
+                grid: { color: 'rgba(255,255,255,0.1)' },
+                title: {
+                    display: true,
+                    text: 'RSSI',
+                    color: '#cccccc'
+                }
+            }
+        }
     }
 });
 
@@ -64,8 +127,8 @@ const lqiChart = new Chart(lqi_stat, {
 //     }
 // });
 
-async function showTraps(){
-     try {
+async function showTraps() {
+    try {
         const response = await fetch("/api/traps", {
             method: "GET",
             headers: {
@@ -79,7 +142,8 @@ async function showTraps(){
         }
         else {
             const info = await response.json();
-            updateTraps(info);
+            const temp = [...info].reverse();
+            updateTraps(temp);
         }
     } catch (error) {
         console.log('Error:', error);
@@ -129,5 +193,5 @@ window.addEventListener("load", function () {
     showTraps();
 })
 
-setInterval(showStats, 2000);
-setInterval(showTraps, 2000);
+setInterval(showStats, 20000);
+setInterval(showTraps, 20000);
