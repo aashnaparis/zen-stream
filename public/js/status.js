@@ -142,9 +142,9 @@ async function showTraps() {
         }
         else {
             const info = await response.json();
-            const temp = [...info].reverse();
-            console.log(temp);
-            updateTraps(temp);
+            // const temp = [...info].reverse();
+            console.log(info);
+            updateTraps(info);
         }
     } catch (error) {
         console.log('Error:', error);
