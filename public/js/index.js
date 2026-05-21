@@ -124,9 +124,9 @@ function updateHeartbeat(data) {
     if (data.length === 0) {
         const row = document.createElement("tr");
         const rowData = document.createElement("td");
-        rowData.colSpan = 4;
-        rowData.style.textAlign = "center";
-        rowData.style.padding = "16px";
+        // rowData.colSpan = 4;
+        // rowData.style.textAlign = "center";
+        // rowData.style.padding = "16px";
         row.appendChild(rowData);
         beat.appendChild(row);
         return;
@@ -146,7 +146,7 @@ function updateHeartbeat(data) {
         timeData.textContent = element.timestamp;
 
         if (element.status === "ONLINE") {
-            statusData.style.color = "green";
+            statusData.style.color = "blue";
         } else {
             statusData.style.color = "red";
         }

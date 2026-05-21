@@ -106,8 +106,10 @@ tbody tr:hover{
 }
 
 td{
-    padding: 12px;
+    padding: 16px;
     font-size: 14px;
+    column-span: 4;
+    text-align: center; 
 }
 
 #map{
