@@ -106,7 +106,7 @@ const lqiChart = new Chart(lqi_stat, {
                 grid: { color: 'rgba(255,255,255,0.1)' },
                 title: {
                     display: true,
-                    text: 'RSSI',
+                    text: 'LQI',
                     color: '#cccccc'
                 }
             }
@@ -143,6 +143,7 @@ async function showTraps() {
         else {
             const info = await response.json();
             const temp = [...info].reverse();
+            console.log(temp);
             updateTraps(temp);
         }
     } catch (error) {
