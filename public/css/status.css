@@ -135,9 +135,7 @@ canvas {
 .graph{
     position: relative;
     height: 350px;
-    width: 85%;
-    margin: 0;
-    padding: 0 0 0 30px;
+    width: 90%;
 }
 
 hr {
