@@ -134,4 +134,14 @@ canvas {
     position: relative;
     height: 350px;
     width: 85%;
+    display: flex;
+    align-items: center;
+}
+
+hr {
+  display: block;
+  border: 0;
+  border-top: 2px solid #201f1f;
+  margin: 1em 0;
+  
 }
