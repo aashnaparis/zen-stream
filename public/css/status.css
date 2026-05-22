@@ -131,7 +131,7 @@ canvas {
 }
 
 .graph{
-    position: fixed;
+    position: relative;
     height: 350px;
     width: 85%;
 }
