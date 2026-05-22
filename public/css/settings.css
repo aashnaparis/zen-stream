@@ -1,112 +1,101 @@
 body {
-    background-color: grey;
+    background-color: #0a0f0d;
+    color: #e6edf3;
     min-height: 100vh;
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
+    padding: 40px 32px;
+    line-height: 1.5;
 }
 
-.main-con{
-    border: 2px solid black;
-    border-color: #000000;
+.main-con {
+    border: 2px solid #30363d;
     border-radius: 6px;
-    background: rgba(10, 116, 52, 0.8);
-    margin: 20px 3px 20px 3px;
+    background-color: #161b22;
+    margin: 20px 0 20px 0;
     padding: 30px;
-    
+
 }
 
 header {
     text-align: center;
-    background-color: azure;
-    border: 2px solid blue;
+    background-color: #010409;
+    border: 2px solid #1f3d2b;
     border-radius: 6px;
+    padding: 10px;
+    /* margin-bottom: 32px; */
 }
 
-h2 {
+header h1 {
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 50px;
+    font-weight: 700;
+    color: #e6edf3;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+
+h2,
+h3 {
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     text-align: center;
+    font-size: 14px;
+    color: #9ecbaf;
 }
-
-#map{
-    width:100%; 
-    height: 550px;
-    margin: 20px 0px 20px 0px;
-    border: 0.5px solid blue;
-    border-radius: 2px;
-}
-
-
-button {
-    background: linear-gradient(135deg, #2599dc, #0bac87);
-    color: #000000;
-    font-family: 'Times New Roman', Times, serif;
-    margin: 10px;
-    padding: 10px 20px;
-    height: 45px;
-    width: 150px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background: linear-gradient(135deg, #4acf2c, #36f718);
-    transform: translateY(-2px);
-    color: #1e3c72;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-button:active {
-    transform: scale(0.97);
-    transition: transform 0.1s;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.button-wrap{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333333;
-}
-
-ul li {
-  float: left;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #162b1f;
+    border: 1px solid #2d5a3f;
+    border-radius: 8px;
+    display: inline-flex;
 }
 
 ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+    display: block;
+    color: #9ecbaf;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.15s ease;
 }
 
 ul li a:hover {
-  background-color: #111111;
+    background-color: #1f3d2b;
+    color: #e6edf3;
 }
 
-.press-piece{
+ul li a.active {
+    background-color: rgba(139, 233, 253, 0.08);
+    color: #8be9fd;
+    border: 1px solid rgba(139, 233, 253, 0.25);
+}
+
+.press-piece {
     display: inline-flex;
     align-items: center;
-    
+    margin: 10px;
+
 }
+
 
 input{
     vertical-align: middle;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid #dc30ab 3px;
-    background-color: #ffd5d5cc;
+    border-bottom: solid #2d5a3f 3px;
+    background-color: #0d1f14;
+    color: #e6edf3;
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
     height: 25px;
     width: 50%;    
 }
@@ -135,7 +124,7 @@ input{
     
 }
 
-select{
+select {
     height: 30px;
     padding: 5px;
     margin-left: 7px;
@@ -143,7 +132,52 @@ select{
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid #dc30ab 3px;
-    background-color: #ffd5d5cc;
-    
+    border-bottom: solid #2d5a3f 3px;
+    border-radius: 2px;
+    background-color: #0d1f14;
+    color: #e6edf3;
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+select:focus {
+    outline: 2px solid #8be9fd;
+    border-color: #8be9fd;
+}
+
+label {
+    font-weight: 12px;
+    font-weight: 600;
+    color: #9ecbaf;
+    letter-spacing: 0.05em;
+    /* text-transform: uppercase; */
+}
+
+button {
+    background-color: #0a0f0d;
+    color: #e6edf3;
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "Cascadia Code", Consolas, monospace;
+    margin: 10px;
+    padding: 10px 20px;
+    height: 45px;
+    width: 150px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #1f3d2b;
+    transform: translateY(-2px);
+    color: #8be9fd;
+    box-shadow: 0 6px 20px rgba(139, 233, 253, 0.08);
+}
+
+button:active {
+    transform: scale(0.97);
+    transition: transform 0.1s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
