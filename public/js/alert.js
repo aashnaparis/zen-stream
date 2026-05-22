@@ -37,15 +37,16 @@ async function showAlerts(){
 
 }
 
-document.getElementById("node-filter").addEventListener('change', () => {
-    showAlerts();
-});
+// document.getElementById("node-filter").addEventListener('change', () => {
+//     showAlerts();
+// });
 
-document.getElementById("status").addEventListener('change', () => {
-    showAlerts();
-});
+// document.getElementById("status").addEventListener('change', () => {
+//     showAlerts();
+// });
 
-document.addEventListener('DOMContentLoaded', showAlerts);
+// document.addEventListener('DOMContentLoaded', showAlerts);
+
 
 function updateAlert(data) {
     const alert = document.getElementById("alert");
@@ -81,3 +82,7 @@ function updateAlert(data) {
     });
 
 }
+
+window.addEventListener("load", function () {
+    showAlerts();
+})
