@@ -7,6 +7,11 @@ body {
     line-height: 1.5;
 }
 
+@media (max-width: 600px) {
+    body { padding: 16px; }
+    td, th { padding: 10px 8px; font-size: 12px; }
+}
+
 .main-con {
     border: 2px solid #30363d;
     border-color: #000000;
@@ -127,6 +132,7 @@ td {
 
 .filter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     padding: 10px;
@@ -136,6 +142,7 @@ td {
 
 .node-filter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 20px;
@@ -167,5 +174,10 @@ label {
     font-weight: 600;
     color: #9ecbaf;
     letter-spacing: 0.05em;
-    /* text-transform: uppercase; */
+    white-space: nowrap;
+}
+
+.table-concept{
+    overflow-x: auto;
+    width: 100%;
 }
