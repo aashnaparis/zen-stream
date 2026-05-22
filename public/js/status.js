@@ -18,20 +18,20 @@ async function showStats() {
             const info = await response.json();
             console.log(info);
 
-            
+
             const temp = [...info].reverse();
 
-           
+
             lqiChart.data.labels = [];
             lqiChart.data.datasets[0].data = [];
             lqiChart.data.datasets[1].data = [];
 
-           
+
             temp.forEach(d => {
                 lqiChart.data.labels.push(d.timestamp);
             });
 
-            
+
             temp.forEach((d, i) => {
                 if (d.node_id == '24' || d.node_id == 24) {
                     lqiChart.data.datasets[0].data[i] = d.linkquality;
@@ -165,10 +165,23 @@ function updateTraps(data) {
         typeData.textContent = element.type;
         nodeData.textContent = element.node;
         batData.textContent = element.battery_lvl;
-        severity.textContent = element.severity;
+
+        if(element.severity === '3'){
+            severity.textContent = 'CRITICAL';
+        }
+        if(element.severity === '1'){
+            severity.textContent = 'MAJOR';
+        }
+        if(element.severity === '4'){
+            severity.textContent = 'FAULT';
+        }
+        if(element.severity === '2'){
+            severity.textContent = 'WARNING';
+        }
+        
         timeData.textContent = element.timestamp;
 
-        row.append(typeData, nodeData, batData, severity, timeData);
+        row.append(typeData, nodeData, severity, batData, timeData);
         snmp.appendChild(row);
     });
 
