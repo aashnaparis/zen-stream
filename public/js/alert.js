@@ -21,11 +21,11 @@ async function showAlerts(){
             let holder = info;
 
             if(node){
-                holder = holder.filter(a => a.node_id === node);
+                holder = holder.filter(a => a.node_id == node);
             }
 
             if(status){
-                holder = holder.filter(a => a.severity === status);
+                holder = holder.filter(a => a.severity == status);
             }
             console.log("Filtered:", holder);
 
@@ -39,15 +39,20 @@ async function showAlerts(){
 
 }
 
-// document.getElementById("node-filter").addEventListener('change', () => {
-//     showAlerts();
-// });
 
-// document.getElementById("status").addEventListener('change', () => {
-//     showAlerts();
-// });
 
-// document.addEventListener('DOMContentLoaded', showAlerts);
+document.addEventListener('DOMContentLoaded', function(){
+    showAlerts();
+    const nodeFilter = document.getElementById("node-filter");
+    const statusFilter = document.getElementById("status");
+    if(nodeFilter){
+        nodeFilter.addEventListener('change', showAlerts);
+    }
+    if(statusFilter){
+        statusFilter.addEventListener('change', showAlerts);
+    }
+});
+
 
 
 function updateAlert(data) {
@@ -73,7 +78,20 @@ function updateAlert(data) {
 
         nodeData.textContent = element.node_id;
         batData.textContent = element.battery_lvl;
-        severity.textContent = element.severity;
+
+        if(element.severity == 3){
+            severity.textContent = 'CRITICAL';
+        }
+        if(element.severity == 1){
+            severity.textContent = 'MAJOR';
+        }
+        if(element.severity == 4){
+            severity.textContent = 'FAULT';
+        }
+        if(element.severity == 2){
+            severity.textContent = 'WARNING';
+        }
+        
         timeData.textContent = element.timestamp;
 
         row.append(nodeData, batData, severity, timeData);
@@ -81,7 +99,3 @@ function updateAlert(data) {
     });
 
 }
-
-window.addEventListener("load", function () {
-    showAlerts();
-})

@@ -7,6 +7,12 @@ body {
     line-height: 1.5;
 }
 
+@media (max-width: 600px) {
+    body { padding: 16px; }
+    td, th { padding: 10px 8px; font-size: 12px; }
+}
+
+
 .main-con {
     border: 2px solid #30363d;
     border-color: #000000;
@@ -275,4 +281,9 @@ footer{
 footer em{
     color: #6e7681;
     font-style: italic;
+}
+
+.table-concept{
+    overflow-x: auto;
+    width: 100%;
 }
