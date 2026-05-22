@@ -14,10 +14,6 @@ body {
     background: #161b22;
     margin: 20px 0 20px 0;
     padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
 }
 
 header {
@@ -135,7 +131,7 @@ canvas {
 }
 
 .graph{
-    position: absolute;
+    position: fixed;
     height: 350px;
     width: 85%;
 }
