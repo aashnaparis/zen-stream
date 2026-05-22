@@ -148,9 +148,6 @@ function updateTraps(data) {
     if (data.length === 0) {
         const row = document.createElement("tr");
         const rowData = document.createElement("td");
-        rowData.colSpan = 4;
-        rowData.style.textAlign = "center";
-        rowData.style.padding = "16px";
         row.appendChild(rowData);
         snmp.appendChild(row);
         return;
@@ -166,7 +163,7 @@ function updateTraps(data) {
         const timeData = document.createElement("td");
 
         typeData.textContent = element.type;
-        nodeData.textContent = element.node_id;
+        nodeData.textContent = element.node;
         batData.textContent = element.battery_lvl;
         severity.textContent = element.severity;
         timeData.textContent = element.timestamp;
