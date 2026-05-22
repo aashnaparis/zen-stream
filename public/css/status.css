@@ -136,6 +136,9 @@ canvas {
     position: relative;
     height: 350px;
     width: 90%;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
 }
 
 hr {
