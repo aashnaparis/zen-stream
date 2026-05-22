@@ -58,9 +58,6 @@ function updateAlert(data) {
     if (data.length === 0) {
         const row = document.createElement("tr");
         const rowData = document.createElement("td");
-        rowData.colSpan = 4;
-        rowData.style.textAlign = "center";
-        rowData.style.padding = "16px";
         row.appendChild(rowData);
         alert.appendChild(row);
         return;
