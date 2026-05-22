@@ -166,16 +166,16 @@ function updateTraps(data) {
         nodeData.textContent = element.node;
         batData.textContent = element.battery_lvl;
 
-        if(element.severity == '3'){
+        if(element.severity == 3){
             severity.textContent = 'CRITICAL';
         }
-        if(element.severity == '1'){
+        if(element.severity == 1){
             severity.textContent = 'MAJOR';
         }
-        if(element.severity == '4'){
+        if(element.severity == 4){
             severity.textContent = 'FAULT';
         }
-        if(element.severity == '2'){
+        if(element.severity == 2){
             severity.textContent = 'WARNING';
         }
         
