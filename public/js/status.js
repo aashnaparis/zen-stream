@@ -51,18 +51,6 @@ async function showStats() {
 
 }
 
-// function createDataPoint(chart, label, value, maxPoints = 30){
-//     chart.data.labels.push(label);
-//     chart.data.datasets[0].data.push(value);
-//     if(chart.data.labels.length > maxPoints){
-//         chart.data.labels.shift();
-//         chart.data.datasets[0].data.shift();
-//     }
-
-//     chart.update();
-
-// }
-
 const lqiChart = new Chart(lqi_stat, {
 
     type: 'line',

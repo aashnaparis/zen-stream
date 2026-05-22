@@ -40,7 +40,7 @@ h3 {
     font-weight: 700;
     letter-spacing: -0.03em;
     text-align: center;
-    font-size: 14px;
+    font-size: 25px;
     color: #9ecbaf;
 }
 
@@ -190,3 +190,8 @@ button:active {
     border-radius: 2px;
 }
 
+.button-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

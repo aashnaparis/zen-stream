@@ -130,3 +130,9 @@ canvas {
     height: 45px;
     background-color: #000000;
 }
+
+.graph{
+    position: absolute;
+    height: 300px;
+    width: 100%;
+}
