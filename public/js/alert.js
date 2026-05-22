@@ -16,7 +16,7 @@ async function showAlerts(){
         }
         else {
             const info = await response.json();
-
+            console.log(info);
             
             let holder = info;
 
