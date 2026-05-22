@@ -16,6 +16,7 @@ async function showAlerts(){
         }
         else {
             const info = await response.json();
+
             
             let holder = info;
 
@@ -26,6 +27,7 @@ async function showAlerts(){
             if(status){
                 holder = holder.filter(a => a.severity === status);
             }
+            console.log("Filtered:", holder);
 
             updateAlert(holder);
 
