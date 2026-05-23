@@ -2,6 +2,8 @@ async function showAlerts(){
     const node = document.getElementById("node-filter").value;
     const status = document.getElementById("status").value;
 
+    console.log("Node: ",node);
+
      try {
         const response = await fetch("/api/alarm", {
             method: "GET",
