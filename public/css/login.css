@@ -7,27 +7,30 @@ body {
     line-height: 1.5;
 }
 
-body::after {
+body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 40%,
-        rgba(45, 90, 63, 0.04) 50%,
-        transparent 60%
-    );
-    background-size: 200% 200%;
+    background-image:
+        linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
-    animation: streak 6s linear infinite;
 }
 
-@keyframes streak {
-    0% { background-position: 200% 0%; }
-    100% { background-position: -200% 0%; }
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 200px;
+    background: radial-gradient(ellipse at 50% 100%, rgba(0,255,136,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
-
 
 .container {
     border: 2px solid #30363d;
