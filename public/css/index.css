@@ -142,7 +142,7 @@ td {
     backdrop-filter: blur(10px);
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 95%;
 }
 
 .contente {
@@ -150,6 +150,7 @@ td {
     position: relative;
     margin: 0px;
     padding: 32px;
+    margin: 10px;
     max-width: 480px;
     width: 90%;
     background-color: #0d1117;
