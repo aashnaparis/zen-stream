@@ -135,7 +135,7 @@ td {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 999;
     background-color: rgba(1, 4, 9, 0.85);
     border-radius: 10% / 50%;
     border: 3px solid #30363d;
@@ -156,15 +156,18 @@ td {
     border-radius: 10% / 50%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-    max-height: 80vh;
+    max-height: 40vh;
+    z-index: 1000;
 }
 
 #map{
+    position: relative;
     width:100%; 
     height: 550px;
     margin: 20px 0px 20px 0px;
     border: 3px solid #30363d;
     border-radius: 2px;
+    z-index: 1;
 }
 
 
@@ -247,6 +250,13 @@ hr {
     color: #c9d1d9;
     border-radius: 6px;
     
+}
+
+.item span{
+    font-size: 22px;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-top: 10px;
 }
 
 .item.press {

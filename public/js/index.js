@@ -1,5 +1,9 @@
 let heartbeats = [];
 
+function adjustTime(t){
+    const time = new Date(t);
+    return time.toLocaleString();
+}
 async function whologged() {
     const token = localStorage.getItem("token");
 
@@ -104,7 +108,7 @@ async function loadHeart() {
             console.log(info);
             if (info.length > 0) {
                 const latest = info[0];
-                document.getElementById('updated').textContent = latest.timestamp;
+                document.getElementById('updated').textContent = adjustTime(latest.timestamp);
             }
             updateHeartbeat(info);
             heartbeats = info;
@@ -124,9 +128,6 @@ function updateHeartbeat(data) {
     if (data.length === 0) {
         const row = document.createElement("tr");
         const rowData = document.createElement("td");
-        // rowData.colSpan = 4;
-        // rowData.style.textAlign = "center";
-        // rowData.style.padding = "16px";
         row.appendChild(rowData);
         beat.appendChild(row);
         return;
@@ -143,7 +144,7 @@ function updateHeartbeat(data) {
         nodeData.textContent = element.node_id;
         batData.textContent = element.battery_lvl;
         statusData.textContent = element.status;
-        timeData.textContent = element.timestamp;
+        timeData.textContent = adjustTime(element.timestamp);
 
         if (element.status === "ONLINE") {
             statusData.style.color = "blue";
@@ -165,9 +166,6 @@ function updateBatt(data, nodeID) {
     if (data.length === 0) {
         const row = document.createElement("tr");
         const rowData = document.createElement("td");
-        rowData.colSpan = 4;
-        rowData.style.textAlign = "center";
-        rowData.style.padding = "16px";
         row.appendChild(rowData);
         batt.appendChild(row);
         return;
@@ -184,10 +182,10 @@ function updateBatt(data, nodeID) {
 
         if (element.node_id === '25') {
             batData.textContent = element.battery_lvl;
-            timeData.textContent = element.timestamp;
+            timeData.textContent = adjustTime(element.timestamp);
         } else if (element.node_id === '24') {
             batData.textContent = element.battery_lvl;
-            timeData.textContent = element.timestamp;
+            timeData.textContent = adjustTime(element.timestamp);
         } else {
             pass
         }
