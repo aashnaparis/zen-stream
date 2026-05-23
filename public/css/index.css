@@ -133,30 +133,30 @@ td {
 
 .modeal{
     display: none;
-    /* position: fixed;
-    position: relative; */
-    margin: 60px 20px 20px 270px;
-    padding: 30px;
-    width: 50%;
-    height: 70%;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
     background-color: rgba(1, 4, 9, 0.85);
     border-radius: 10% / 50%;
     border: 3px solid #30363d;
     backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
 }
 
 .contente {
     text-align: center;
-    position: fixed;
     position: relative;
     margin: 0px;
-    padding: 50px;
-    max-width: 500px;
-    width: 100%;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
     background-color: #0d1117;
     backdrop-filter: blur(10px);
     border-radius: 10% / 50%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: 80vh;
 }
 
 #map{
