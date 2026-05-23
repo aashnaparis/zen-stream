@@ -1,3 +1,9 @@
+function adjustTime(t){
+    const time = new Date(t);
+    return time.toLocaleString();
+}
+
+
 async function showAlerts(){
     const node = document.getElementById("node-filter").value;
     const status = document.getElementById("status").value;
@@ -94,7 +100,7 @@ function updateAlert(data) {
             severity.textContent = 'WARNING';
         }
         
-        timeData.textContent = element.timestamp;
+        timeData.textContent = adjustTime(element.timestamp);
 
         row.append(nodeData, batData, severity, timeData);
         alert.appendChild(row);

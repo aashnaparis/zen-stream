@@ -4,13 +4,14 @@ function adjustTime(t){
     const time = new Date(t);
     return time.toLocaleString();
 }
+
 async function whologged() {
     const token = localStorage.getItem("token");
 
-    // if (!token) {
-    //     window.location.href = "/login.html";
-    // }
-    null
+    if (!token) {
+        window.location.href = "/login.html";
+    }
+    // null
 
 }
 

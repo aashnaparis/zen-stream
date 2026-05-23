@@ -7,17 +7,27 @@ body {
     line-height: 1.5;
 }
 
-body::before {
+body::after {
     content: '';
     position: fixed;
     inset: 0;
-    background-image:
-        linear-gradient(rgba(45,90,63,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(45,90,63,0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(45, 90, 63, 0.04) 50%,
+        transparent 60%
+    );
+    background-size: 200% 200%;
     pointer-events: none;
     z-index: 0;
+    animation: streak 6s linear infinite;
 }
+
+@keyframes streak {
+    0% { background-position: 200% 0%; }
+    100% { background-position: -200% 0%; }
+}
+
 
 .container {
     border: 2px solid #30363d;

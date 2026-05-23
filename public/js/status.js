@@ -1,3 +1,8 @@
+function adjustTime(t){
+    const time = new Date(t);
+    return time.toLocaleString();
+}
+
 // const rssi_stat = document.getElementById("rssi");
 const lqi_stat = document.getElementById("link");
 
@@ -28,7 +33,7 @@ async function showStats() {
 
 
             temp.forEach(d => {
-                lqiChart.data.labels.push(d.timestamp);
+                lqiChart.data.labels.push(adjustTime(d.timestamp));
             });
 
 
@@ -179,7 +184,7 @@ function updateTraps(data) {
             severity.textContent = 'WARNING';
         }
         
-        timeData.textContent = element.timestamp;
+        timeData.textContent = adjustTime(element.timestamp);
 
         row.append(typeData, nodeData, severity, batData, timeData);
         snmp.appendChild(row);
