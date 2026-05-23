@@ -7,29 +7,32 @@ body {
     line-height: 1.5;
 }
 
-body::before {
-    content: '';
+#flash {
     position: fixed;
     inset: 0;
-    background-image:
-        linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
     z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 110%, rgba(34,139,34,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(34,139,34,0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 90%, rgba(34,139,34,0.1) 0%, transparent 40%);
+    animation: glow-drift 6s ease-in-out infinite alternate;
 }
 
-body::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 200px;
-    background: radial-gradient(ellipse at 50% 100%, rgba(0,255,136,0.12) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+@keyframes glow-drift {
+    0% {
+        background:
+            radial-gradient(ellipse at 50% 110%, rgba(34,139,34,0.3) 0%, transparent 60%),
+            radial-gradient(ellipse at 20% 80%, rgba(34,139,34,0.1) 0%, transparent 40%),
+            radial-gradient(ellipse at 80% 90%, rgba(34,139,34,0.1) 0%, transparent 40%);
+    }
+    100% {
+        background:
+            radial-gradient(ellipse at 50% 110%, rgba(34,139,34,0.4) 0%, transparent 65%),
+            radial-gradient(ellipse at 30% 85%, rgba(34,139,34,0.15) 0%, transparent 40%),
+            radial-gradient(ellipse at 70% 95%, rgba(34,139,34,0.15) 0%, transparent 40%);
+    }
 }
 
 .container {
