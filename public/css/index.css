@@ -133,7 +133,7 @@ td {
 
 .modeal{
     display: none;
-    position: fixed;
+    /* position: fixed; */
     inset: 0;
     z-index: 999;
     background-color: rgba(1, 4, 9, 0.85);
@@ -142,6 +142,7 @@ td {
     backdrop-filter: blur(10px);
     justify-content: center;
     align-items: center;
+    width: 80%;
 }
 
 .contente {
@@ -156,7 +157,7 @@ td {
     border-radius: 10% / 50%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-    max-height: 40vh;
+    max-height: 80vh;
     z-index: 1000;
 }
 
